@@ -1,0 +1,48 @@
+export const typeDefs = /* GraphQL */ `
+  type Query {
+    hello: String!
+    me: User
+    myGameHistory: [GameResult!]!
+    myBestScore: GameResult
+    leaderboard(limit: Int): [LeaderboardEntry!]!
+  }
+
+  type Mutation {
+    register(email: String!, password: String!): AuthPayload!
+    login(email: String!, password: String!): AuthPayload!
+    saveGameResult(
+      totalTimeMs: Int!
+      correctCount: Int!
+      wrongAttempts: Int!
+      penaltyMs: Int!
+    ): GameResult!
+  }
+
+  type AuthPayload {
+    token: String!
+    user: User!
+  }
+
+  type User {
+    id: String!
+    email: String!
+    createdAt: String!
+  }
+
+  type GameResult {
+    id: String!
+    userId: String!
+    totalTimeMs: Int!
+    correctCount: Int!
+    wrongAttempts: Int!
+    penaltyMs: Int!
+    createdAt: String!
+  }
+
+  type LeaderboardEntry {
+    userId: String!
+    email: String!
+    bestTimeMs: Int!
+    gamesPlayed: Int!
+  }
+`;

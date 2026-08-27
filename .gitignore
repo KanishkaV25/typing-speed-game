@@ -1,0 +1,31 @@
+# Environment files — never commit real secrets
+.env
+.env.local
+.env.*.local
+
+# Dependencies
+node_modules/
+
+# Build outputs
+dist/
+build/
+
+# Prisma engine binaries
+backend/prisma/migrations/*.db
+*.db
+query_engine*
+libquery_engine*
+prisma-query-engine*
+
+# Bun lockfile (keep bun.lockb, but not node lock files)
+package-lock.json
+yarn.lock
+
+# OS artifacts
+.DS_Store
+Thumbs.db
+*.log
+
+# IDE
+.idea/
+.vscode/settings.json
