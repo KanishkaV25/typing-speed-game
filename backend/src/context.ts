@@ -11,8 +11,13 @@ export interface AppContext {
 }
 
 export function getJwtSecret(): string {
-  return process.env.JWT_SECRET || "default_jwt_secret_dev";
+  const secret = process.env.JWT_SECRET;
+  if (!secret) {
+    throw new Error("JWT_SECRET environment variable is missing");
+  }
+  return secret;
 }
+
 
 export async function buildContext(ctx: YogaInitialContext): Promise<AppContext> {
   const authHeader = ctx.request.headers.get("authorization") ?? "";

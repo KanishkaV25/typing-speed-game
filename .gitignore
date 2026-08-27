@@ -21,10 +21,12 @@ prisma-query-engine*
 package-lock.json
 yarn.lock
 
-# OS artifacts
+# OS artifacts & debug scripts
 .DS_Store
 Thumbs.db
 *.log
+test_auth_direct.ts
+
 
 # IDE
 .idea/
